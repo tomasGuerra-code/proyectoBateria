@@ -1,0 +1,83 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    background-image: url('./img/background.png') center/cover no-repeat;
+    background-size: cover;
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.keys {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.key {
+    border: .4rem solid black;
+    border-radius: .5rem;
+    padding: 1rem .5rem;
+    transition: all .07s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    width: 9rem;
+    text-align: center;
+    color: white;
+    background: rgba(0, 0, 0, 0.4);
+    text-shadow: 0 0 .5rem black;
+    cursor: pointer;
+}
+
+.key:hover {
+    transform: scale(1.05);
+    border-color: #ffeb99;
+}
+
+.sound {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    color: #ffc600;
+}
+
+kbd {
+    display: block;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.playing {
+  transform: scale(1.15);
+  border-color: #ffc600;
+  box-shadow: 0 0 1rem #ffc600, 0 0 0.5rem #ffea80 inset;
+}
+
+/* Animación de rebote */
+
+@keyframes press {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+}
+
+.playing {
+    animation: press 0.1s ease;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+    html {
+        font-size: 18px;
+    }
+    .key {
+        width: 7rem;
+    }
+}
+
